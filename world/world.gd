@@ -1,10 +1,10 @@
 extends Node2D
 
 const CHUNK = preload("res://world/chunk/chunk.tscn")
-const CHUNK_SIZE = 512
+const CHUNK_SIZE = 256
 
 var world_seed:String = "test"
-var RENDER_DISTANCE = 1
+var RENDER_DISTANCE = 2
 
 @onready var player = $Player
 
