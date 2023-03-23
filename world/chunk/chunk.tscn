@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpl8sgnhdwwpl"]
 
 [ext_resource type="Script" path="res://world/chunk/chunk.gd" id="1_7qpas"]
-[ext_resource type="Texture2D" uid="uid://clal38aokdhgy" path="res://icon.svg" id="2_eyp1c"]
+[ext_resource type="Texture2D" uid="uid://bd4aff10okt5o" path="res://tile.png" id="2_mhdjk"]
 
 [node name="Chunk" type="Node2D"]
 script = ExtResource("1_7qpas")
@@ -9,7 +9,7 @@ script = ExtResource("1_7qpas")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
 scale = Vector2(1.64063, 1.375)
-texture = ExtResource("2_eyp1c")
+texture = ExtResource("2_mhdjk")
 centered = false
 
 [node name="Label" type="Label" parent="."]

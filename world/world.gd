@@ -4,7 +4,7 @@ const CHUNK = preload("res://world/chunk/chunk.tscn")
 const CHUNK_SIZE = 256
 
 var world_seed:String = "test"
-var RENDER_DISTANCE = 2
+var RENDER_DISTANCE:int = 4
 
 @onready var player = $Player
 
@@ -14,6 +14,9 @@ var current_chunk = null
 
 func _ready():
 	generate()
+
+func get_render_axis(offset,width:int):
+	return range(-floor(float(width)/2.0) + offset,ceil(float(width)/2.0) + offset)
 
 func _process(_delta):
 	# every frame, check if the player is in a different chunk
@@ -27,8 +30,8 @@ func update_chunks():
 	var loaded:Array[Vector2i] = []
 	
 	# iterates over limits of render distance
-	for x in range(current_chunk.x + -RENDER_DISTANCE,current_chunk.x + RENDER_DISTANCE+1):
-		for y in range(current_chunk.y + -RENDER_DISTANCE,current_chunk.y + RENDER_DISTANCE+1):
+	for x in get_render_axis(current_chunk.x,RENDER_DISTANCE):
+		for y in get_render_axis(current_chunk.y,RENDER_DISTANCE):
 			# updates the chunk
 			var current = Vector2i(x,y)
 			load_chunk(current)
@@ -40,7 +43,10 @@ func update_chunks():
 			unload_chunk(i.pos)
 
 func get_player_chunk():
-	return Vector2i(round(player.position/CHUNK_SIZE))
+	if (RENDER_DISTANCE%2):
+		return Vector2i(round(player.position/CHUNK_SIZE))
+	else:
+		return Vector2i(ceil(player.position/CHUNK_SIZE))
 
 func chunk_read(pos:Vector2i):
 	# will read chunk data or generate new data

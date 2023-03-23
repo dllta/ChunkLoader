@@ -49,8 +49,8 @@ offset_left = 8.0
 offset_top = 127.0
 offset_right = 160.0
 offset_bottom = 143.0
-max_value = 5.0
-value = 2.0
+max_value = 10.0
+value = 4.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Save" type="Button" parent="CanvasLayer"]

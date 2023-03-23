@@ -8,7 +8,7 @@ var chunk_data:ChunkData
 
 func _ready():
 	# set scale to the chunk size
-	$Sprite2D.scale = Vector2(world.CHUNK_SIZE/128,world.CHUNK_SIZE/128)
+	$Sprite2D.scale = Vector2(world.CHUNK_SIZE/8,world.CHUNK_SIZE/8)
 
 func load_data(new_data):
 	# load new chunk data
