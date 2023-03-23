@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct37v65are0kx"]
+[gd_scene load_steps=3 format=3 uid="uid://b08xkpm7cdysv"]
 
-[ext_resource type="Script" path="res://scene/world/world.gd" id="1_5vy8l"]
-[ext_resource type="PackedScene" uid="uid://do7j8b13jvp4b" path="res://asset/entity/player/player.tscn" id="2_n2mp7"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_5vy8l"]
+[ext_resource type="PackedScene" uid="uid://do7j8b13jvp4b" path="res://player/player.tscn" id="2_n2mp7"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_5vy8l")
@@ -77,7 +77,7 @@ access = 2
 
 [node name="Load2" type="FileDialog" parent="CanvasLayer"]
 initial_position = 1
-title = "Open World"
+title = "Open a File"
 size = Vector2i(1000, 500)
 ok_button_text = "Open"
 file_mode = 0

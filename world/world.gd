@@ -1,6 +1,6 @@
 extends Node2D
 
-const CHUNK = preload("res://scene/world/chunk/chunk.tscn")
+const CHUNK = preload("res://world/chunk/chunk.tscn")
 const CHUNK_SIZE = 512
 
 var world_seed:String = "test"
