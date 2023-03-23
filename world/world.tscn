@@ -83,6 +83,22 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -26.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "(space to toggle view)"
+
 [connection signal="text_submitted" from="CanvasLayer/Seed" to="." method="_on_seed_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="CanvasLayer/Print" to="." method="_on_print_pressed"]
