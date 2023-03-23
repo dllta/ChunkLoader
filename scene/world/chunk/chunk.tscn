@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxxsgft0sqpgc"]
+
+[ext_resource type="Script" path="res://scene/world/chunk/chunk.gd" id="1_qcmx4"]
+[ext_resource type="Texture2D" uid="uid://clal38aokdhgy" path="res://icon.svg" id="2_ei5g3"]
+
+[node name="Chunk" type="Node2D"]
+script = ExtResource("1_qcmx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.290196)
+scale = Vector2(1.64063, 1.375)
+texture = ExtResource("2_ei5g3")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 92.0
+offset_bottom = 96.0
+text = "Chunk
+number:x
+color:x"
+
+[node name="Number" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 94.0
+offset_bottom = 106.0
+text = "Number"
+
+[node name="Color" type="Button" parent="."]
+offset_left = 100.0
+offset_top = 75.0
+offset_right = 189.0
+offset_bottom = 106.0
+text = "Color"
+
+[connection signal="pressed" from="Number" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="Color" to="." method="_on_color_pressed"]

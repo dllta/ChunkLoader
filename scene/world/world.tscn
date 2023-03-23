@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct37v65are0kx"]
+
+[ext_resource type="Script" path="res://scene/world/world.gd" id="1_5vy8l"]
+[ext_resource type="PackedScene" uid="uid://do7j8b13jvp4b" path="res://asset/entity/player/player.tscn" id="2_n2mp7"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_5vy8l")
+
+[node name="Chunk" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_n2mp7")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Seed" type="LineEdit" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 126.0
+offset_bottom = 37.0
+placeholder_text = "seed"
+metadata/_edit_use_anchors_ = true
+
+[node name="New" type="Button" parent="CanvasLayer"]
+offset_left = 129.0
+offset_top = 6.0
+offset_right = 162.0
+offset_bottom = 37.0
+text = "%"
+metadata/_edit_use_anchors_ = true
+
+[node name="Print" type="Button" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 43.0
+offset_right = 162.0
+offset_bottom = 79.0
+text = "Print ChunkData"
+metadata/_edit_use_anchors_ = true
+
+[node name="Reload" type="Button" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 85.0
+offset_right = 162.0
+offset_bottom = 121.0
+text = "Reload World"
+metadata/_edit_use_anchors_ = true
+
+[node name="Render" type="HSlider" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 127.0
+offset_right = 160.0
+offset_bottom = 143.0
+max_value = 5.0
+value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Save" type="Button" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 148.0
+offset_right = 83.0
+offset_bottom = 184.0
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Button" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 148.0
+offset_right = 162.0
+offset_bottom = 184.0
+text = "Load"
+metadata/_edit_use_anchors_ = true
+
+[node name="Save2" type="FileDialog" parent="CanvasLayer"]
+initial_position = 1
+title = "Save World"
+size = Vector2i(1000, 500)
+access = 2
+
+[node name="Load2" type="FileDialog" parent="CanvasLayer"]
+initial_position = 1
+title = "Open World"
+size = Vector2i(1000, 500)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[connection signal="text_submitted" from="CanvasLayer/Seed" to="." method="_on_seed_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="CanvasLayer/Print" to="." method="_on_print_pressed"]
+[connection signal="pressed" from="CanvasLayer/Reload" to="." method="_on_reload_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Render" to="." method="_on_render_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Load" to="." method="_on_load_pressed"]
+[connection signal="file_selected" from="CanvasLayer/Save2" to="." method="_on_save_2_file_selected"]
+[connection signal="file_selected" from="CanvasLayer/Load2" to="." method="_on_load_2_file_selected"]
