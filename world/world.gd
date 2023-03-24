@@ -2,6 +2,7 @@ extends Node2D
 
 const CHUNK = preload("res://world/chunk/chunk.tscn")
 const CHUNK_SIZE = 256
+const CHUNK_TILES = 64
 
 var world_seed:String = "test"
 var RENDER_DISTANCE:int = 4
@@ -12,7 +13,17 @@ var chunks:Dictionary = {}
 
 var current_chunk = null
 
+var noise_map:FastNoiseLite
+
 func _ready():
+	noise_map = FastNoiseLite.new()
+	noise_map.seed = hash(world_seed)
+	noise_map.noise_type = FastNoiseLite.TYPE_SIMPLEX
+	noise_map.frequency = 0.04
+	noise_map.fractal_octaves = 4
+	noise_map.fractal_lacunarity = 2
+	noise_map.fractal_gain = 0.5
+	
 	generate()
 
 func get_render_axis(offset,width:int):
@@ -55,6 +66,10 @@ func chunk_read(pos:Vector2i):
 	else:
 		var chunk_seed = hash(world_seed + str(pos))
 		var data = ChunkData.new()
+		#noise_map.seed = chunk_seed
+		
+		noise_map.offset = Vector3(pos.x*CHUNK_TILES,pos.y*CHUNK_TILES,0)
+		data.noise_map = noise_map.get_image(CHUNK_TILES,CHUNK_TILES)
 		data.generate(chunk_seed)
 		chunk_write(pos,data)
 		return data

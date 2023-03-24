@@ -6,6 +6,10 @@
 [node name="Chunk" type="Node2D"]
 script = ExtResource("1_7qpas")
 
+[node name="NoiseMap" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+centered = false
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
 scale = Vector2(1.64063, 1.375)

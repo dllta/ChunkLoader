@@ -3,6 +3,8 @@ class_name ChunkData extends Node
 var number:int
 var color:Array
 
+var noise_map:Image
+
 func generate(_seed:int):
 	# generate chunk data based off of a seed
 	var gen = RandomNumberGenerator.new()
